@@ -134,9 +134,33 @@ class _CommentSheetState extends State<CommentSheet> {
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 10.sp,
-                              color: Colors.grey[600],
+                              color: Colors.grey[700],
                             ),
                           ),
+                          SizedBox(height: 3.h),
+                          Row(
+                            children: [
+                              Container(
+                                width: 15.w,
+                                child: Expanded(
+                                  child: Divider(
+                                    thickness: 0.3,
+                                    color: Colors.grey,
+                                    height: 1,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                '  View 10 replies',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 10.sp,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                              // SizedBox(width: 8.w),
+                            ],
+                          )
                         ],
                       ),
                     ),

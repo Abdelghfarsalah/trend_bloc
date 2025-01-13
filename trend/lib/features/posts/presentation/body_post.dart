@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:trend/features/posts/data/models/post_model.dart';
 
 class BodyPost extends StatelessWidget {
-  const BodyPost({super.key});
+  final Post post;
+
+  const BodyPost({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -9,10 +12,16 @@ class BodyPost extends StatelessWidget {
       height: 300,
       width: double.infinity,
       decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: AssetImage('assets/images/aziz.jpg'),
-          fit: BoxFit.cover,
-        ),
+        image: post.image.isNotEmpty
+            ? DecorationImage(
+                image: NetworkImage(post.image), // Image from API
+                fit: BoxFit.cover,
+              )
+            : const DecorationImage(
+                image: AssetImage(
+                    'assets/images/placeholder.jpg'), // Fallback image
+                fit: BoxFit.cover,
+              ),
       ),
     );
   }

@@ -73,9 +73,8 @@ class HomePage extends StatelessWidget {
                   // Display the list of posts
                   return ListView.builder(
                     itemCount: state.posts.length,
-                    itemBuilder: (context, index) {
-                      return MainPost(post: state.posts[index]);
-                    },
+                    itemBuilder: (context, index) =>
+                        MainPost(post: state.posts[index]),
                   );
                 } else if (state is PostError) {
                   return Center(child: Text('Error: ${state.message}'));

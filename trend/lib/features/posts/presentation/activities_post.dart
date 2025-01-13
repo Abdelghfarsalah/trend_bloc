@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trend/features/posts/data/models/post_model.dart';
 import 'package:trend/features/posts/presentation/widgets/comment_sheet.dart';
 
+// ignore: must_be_immutable
 class ActivitiesPost extends StatelessWidget {
-  const ActivitiesPost({super.key});
+  Post post;
+  ActivitiesPost({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
