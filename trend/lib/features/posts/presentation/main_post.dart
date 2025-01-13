@@ -11,13 +11,13 @@ class MainPost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const HeaderPost(),
+        // const HeaderPost(post: post),
         BodyPost(),
         SizedBox(
           height: 10.sp,
         ),
         const ActivitiesPost(),
-        const HeaderPost(),
+        // const HeaderPost(),
         const BodyPost(),
       ],
     );

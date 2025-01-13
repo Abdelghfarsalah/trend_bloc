@@ -63,7 +63,7 @@ class _CommentSheetState extends State<CommentSheet> {
     return Column(
       children: [
         // Comments header
-        SizedBox(height: 10.h),
+        SizedBox(height: 40.h),
         Center(
           child: Text(
             'Comments',
@@ -108,11 +108,33 @@ class _CommentSheetState extends State<CommentSheet> {
                               fontWeight: FontWeight.w600,
                             ),
                           ),
+                          SizedBox(height: 2.h),
+                          Row(
+                            children: [
+                              Text(
+                                comment["comment"]!,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 11.sp,
+                                ),
+                                softWrap: true,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              Spacer(),
+                              Icon(
+                                Icons.favorite_border,
+                                size: 12.sp,
+                                color: const Color.fromARGB(255, 0, 0, 0),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 2.h),
                           Text(
-                            comment["comment"]!,
+                            'Reply',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 11.sp,
+                              fontSize: 10.sp,
+                              color: Colors.grey[600],
                             ),
                           ),
                         ],
