@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:trend/features/add_post/add_post.dart';
-import 'package:trend/features/home/presentation/home_page.dart';
+import 'package:trend/features/posts/presentation/home_page.dart';
 import 'package:trend/features/notifications/notifications.dart';
 import 'package:trend/features/profile/my_profile/my_profile.dart';
 import 'package:trend/features/explore/presentation/search.dart';

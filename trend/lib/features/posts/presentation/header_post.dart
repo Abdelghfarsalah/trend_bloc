@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:trend/features/home/presentation/widgets/post_details.dart';
+import 'package:trend/features/posts/data/models/post_model.dart';
+import 'package:trend/features/posts/presentation/widgets/post_details.dart';
 
 class HeaderPost extends StatelessWidget {
-  const HeaderPost({super.key});
+  final Post post;
+  const HeaderPost({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class HeaderPost extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'aziz',
+                        post.author,
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -35,7 +37,6 @@ class HeaderPost extends StatelessWidget {
                   ),
                 ],
               ),
-              // Wrap '10m' and 'Icon' in a Row
               Row(
                 children: [
                   Text(

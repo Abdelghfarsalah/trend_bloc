@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:trend/features/home/presentation/widgets/comment_sheet.dart';
+import 'package:trend/features/posts/presentation/widgets/comment_sheet.dart';
 
 class ActivitiesPost extends StatelessWidget {
   const ActivitiesPost({super.key});
