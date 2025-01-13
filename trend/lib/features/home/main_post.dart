@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:trend/features/home/activities_post.dart';
-import 'package:trend/features/home/body_post.dart';
-import 'package:trend/features/home/header_post.dart';
+import 'package:trend/features/home/presentation/body_post.dart';
+import 'package:trend/features/home/presentation/header_post.dart';
 
 class MainPost extends StatelessWidget {
   const MainPost({super.key});

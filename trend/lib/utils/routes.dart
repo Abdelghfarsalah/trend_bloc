@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:trend/features/others/authentication/pages/login.dart';
-import 'package:trend/features/others/authentication/pages/reset_password.dart';
-import 'package:trend/features/others/authentication/pages/signup.dart';
-import 'package:trend/features/home/home_page.dart';
-import 'package:trend/features/others/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:trend/features/authentication/presentation/pages/login.dart';
+import 'package:trend/features/authentication/presentation/pages/reset_password.dart';
+import 'package:trend/features/authentication/presentation/pages/signup.dart';
+import 'package:trend/features/bottom_nav_bar/bottom_nav_bar.dart';
+import 'package:trend/features/home/presentation/home_page.dart';
 
 class AppRoutes {
   static const String home = '/home';

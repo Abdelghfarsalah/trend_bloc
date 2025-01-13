@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:trend/utils/routes.dart'; // Import your custom routes
+import 'package:trend/bloc_providers.dart';
+import 'package:trend/utils/routes.dart';
 
 void main() {
   runApp(
-    const ProviderScope(child: MyApp()),
+    AppBlocProviders.getBlocProviders(
+      child: const MyApp(),
+    ),
   );
 }
 
@@ -21,50 +23,9 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           themeMode: ThemeMode.light,
           title: 'Trend',
-          theme: ThemeData(
-            brightness: Brightness.light,
-            splashColor: Colors.white,
-            highlightColor: Colors.white,
-            scaffoldBackgroundColor: Colors.white,
-            primaryColor: Colors.white,
-            appBarTheme: const AppBarTheme(
-              color: Colors.white,
-              elevation: 0,
-              iconTheme: IconThemeData(color: Colors.black),
-              titleTextStyle: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            buttonTheme: const ButtonThemeData(
-              buttonColor: Colors.white,
-              textTheme: ButtonTextTheme.primary,
-            ),
-            floatingActionButtonTheme: const FloatingActionButtonThemeData(
-              backgroundColor: Colors.white,
-              foregroundColor: Colors.black,
-            ),
-            cardColor: Colors.white,
-            dialogBackgroundColor: Colors.white,
-            dividerColor: Colors.grey,
-            canvasColor: Colors.white,
-            bottomAppBarTheme: const BottomAppBarTheme(
-              color: Colors.white,
-              elevation: 0,
-            ),
-            iconTheme: const IconThemeData(color: Colors.black),
-            bottomSheetTheme: const BottomSheetThemeData(
-              backgroundColor: Colors.white,
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-              ),
-            ),
-          ),
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.home,
-          routes: routes, // Ensure you define this in your utils/routes.dart
+          initialRoute: AppRoutes.login,
+          routes: routes, // Ensure routes are defined in utils/routes.dart
           onGenerateRoute: onGenerateRoute, // Handle dynamic routing
         );
       },

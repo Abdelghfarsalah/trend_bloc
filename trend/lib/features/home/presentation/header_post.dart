@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:trend/features/home/widgets/post_details.dart';
+import 'package:trend/features/home/presentation/widgets/post_details.dart';
 
 class HeaderPost extends StatelessWidget {
   const HeaderPost({super.key});

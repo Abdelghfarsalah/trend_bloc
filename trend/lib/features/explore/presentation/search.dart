@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:trend/features/search/explore_posts.dart';
-import 'package:trend/features/search/search_and_ad.dart';
+import 'package:trend/features/explore/presentation/explore_posts.dart';
+import 'package:trend/features/explore/presentation/search_and_ad.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
