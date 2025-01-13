@@ -18,9 +18,9 @@ class HeaderPost extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 16,
-                    backgroundImage: AssetImage('assets/images/image.png'),
+                    backgroundImage: NetworkImage(post.avatar),
                   ),
                   SizedBox(width: 10),
                   Column(
@@ -64,10 +64,13 @@ class HeaderPost extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 5.h),
-          Text(
-            'Victory tastes sweeter with every twist and turn and driven by passion, fueled by adrenaline – Rally Champion 2024!',
-            style: TextStyle(fontWeight: FontWeight.w500),
+          SizedBox(height: 3.h),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              post.description,
+              style: TextStyle(fontWeight: FontWeight.w500),
+            ),
           ),
         ],
       ),

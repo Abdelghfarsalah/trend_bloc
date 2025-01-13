@@ -15,8 +15,7 @@ class _CommentSheetState extends State<CommentSheet> {
     {"username": "aziz", "comment": "I love this post!"},
     {
       "username": "sarah",
-      "comment":
-          "This is amazing! Keep up the great work. I look forward to more updates."
+      "comment": "This is amazing! Keep up the great work."
     },
     {"username": "john", "comment": "Nice!"},
     {
@@ -110,25 +109,44 @@ class _CommentSheetState extends State<CommentSheet> {
                           ),
                           SizedBox(height: 2.h),
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment
+                                .start, // Align items to the top
                             children: [
-                              Text(
-                                comment["comment"]!,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 11.sp,
+                              Expanded(
+                                child: Text(
+                                  comment["comment"]!,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 11.sp,
+                                  ),
+                                  softWrap:
+                                      true, // Allow the text to wrap to a new line
                                 ),
-                                softWrap: true,
-                                overflow: TextOverflow.ellipsis,
                               ),
-                              Spacer(),
-                              Icon(
-                                Icons.favorite_border,
-                                size: 12.sp,
-                                color: const Color.fromARGB(255, 0, 0, 0),
+                              Column(
+                                children: [
+                                  Icon(
+                                    Icons.favorite_border,
+                                    size: 14.sp,
+                                    color:
+                                        const Color.fromARGB(255, 86, 86, 86),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 4.0),
+                                    child: Text(
+                                      '20',
+                                      style: TextStyle(
+                                        fontSize: 9.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromARGB(
+                                            255, 129, 129, 129),
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
                             ],
                           ),
-                          SizedBox(height: 2.h),
                           Text(
                             'Reply',
                             style: TextStyle(
@@ -179,7 +197,7 @@ class _CommentSheetState extends State<CommentSheet> {
         ),
         Padding(
           padding:
-              EdgeInsets.only(left: 16.w, right: 16.w, bottom: 16.h, top: 8.h),
+              EdgeInsets.only(left: 16.w, right: 1.w, bottom: 5.h, top: 8.h),
           child: Row(
             children: [
               // Avatar on the left of input field
@@ -230,7 +248,7 @@ class _CommentSheetState extends State<CommentSheet> {
                   }
                 },
                 icon: const Icon(Icons.send),
-                color: Colors.blue,
+                color: Colors.black,
               ),
             ],
           ),

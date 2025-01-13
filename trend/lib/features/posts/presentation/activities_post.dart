@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:trend/features/posts/data/models/post_model.dart';
 import 'package:trend/features/posts/presentation/widgets/comment_sheet.dart';
 
-// ignore: must_be_immutable
 class ActivitiesPost extends StatelessWidget {
   Post post;
   ActivitiesPost({super.key, required this.post});
@@ -16,7 +15,6 @@ class ActivitiesPost extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // Like Button
             Row(
               children: [
                 SvgPicture.asset(
