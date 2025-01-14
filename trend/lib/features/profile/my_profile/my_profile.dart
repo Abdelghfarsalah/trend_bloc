@@ -1,9 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trend/utils/SharedPreferencesDemo.dart';
+import 'package:trend/utils/currentUser.dart';
 
-class MyProfile extends StatelessWidget {
+class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
+
+  @override
+  State<MyProfile> createState() => _MyProfileState();
+}
+
+class _MyProfileState extends State<MyProfile> {
+  currentUser user = currentUser(
+      id: 1,
+      username: "username",
+      email: "email",
+      fullName: "fullName",
+      avatar: "avatar");
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    user = await SharedPreferencesDemo.loadUserData();
+    setState(() {
+      // تحديث الواجهة عند تحميل البيانات إذا لزم الأمر
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +48,7 @@ class MyProfile extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               Text(
-                'Scout Organizations',
+                user.username,
                 style: TextStyle(
                   fontSize: 15.sp,
                   fontWeight: FontWeight.bold,
@@ -30,7 +56,7 @@ class MyProfile extends StatelessWidget {
               ),
               SizedBox(height: 5.h),
               Text(
-                '@scout_team',
+                user.email,
                 style: TextStyle(
                   fontSize: 11.sp,
                   color: const Color.fromARGB(255, 141, 141, 141),

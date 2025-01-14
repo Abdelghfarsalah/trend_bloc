@@ -1,18 +1,27 @@
-import 'package:trend/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:trend/features/authentication/domain/repositories/auth_repository.dart';
+import 'package:trend/utils/SharedPreferencesDemo.dart';
+
 import 'authentication_event.dart';
 import 'authentication_state.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationApi authApi;
-
+  SharedPreferencesDemo sharedPreferencesDemo = SharedPreferencesDemo();
   AuthenticationBloc({required this.authApi}) : super(AuthenticationInitial()) {
     // Handle login event
     on<AuthenticationLoginEvent>((event, emit) async {
       emit(AuthenticationLoading());
       try {
         final user = await authApi.login(event.username, event.password);
+        await sharedPreferencesDemo.saveUserData(
+          id: user.id ?? "0",
+          email: user.email ?? "null",
+          username: user.username ?? "null",
+          fullName: user.fullName ?? "null",
+          avatar: user.avatar ?? "null",
+        );
         emit(AuthenticationAuthenticated(username: user.username));
       } catch (e) {
         emit(AuthenticationError(message: e.toString()));
@@ -58,6 +67,7 @@ class AuthenticationBloc
           password: event.password,
           passwordConfirm: event.passwordConfirm,
         );
+
         emit(RegistrationSuccess(message: message));
       } catch (e) {
         emit(RegistrationError(message: e.toString()));
