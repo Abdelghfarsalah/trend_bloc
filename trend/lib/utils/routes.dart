@@ -3,7 +3,7 @@ import 'package:trend/features/authentication/presentation/pages/login.dart';
 import 'package:trend/features/authentication/presentation/pages/reset_password.dart';
 import 'package:trend/features/authentication/presentation/pages/signup.dart';
 import 'package:trend/features/bottom_nav_bar/bottom_nav_bar.dart';
-import 'package:trend/features/home/presentation/home_page.dart';
+import 'package:trend/features/posts/presentation/home_page.dart';
 
 class AppRoutes {
   static const String home = '/home';

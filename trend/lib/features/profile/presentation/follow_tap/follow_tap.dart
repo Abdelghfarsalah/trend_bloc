@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FollowTabs extends StatefulWidget {
-  const FollowTabs({super.key});
+  final int initialTabIndex; // 0 for Followers, 1 for Following
+
+  const FollowTabs({super.key, required this.initialTabIndex});
 
   @override
   State<FollowTabs> createState() => _FollowTabsState();
@@ -15,7 +17,11 @@ class _FollowTabsState extends State<FollowTabs>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(
+      length: 2,
+      vsync: this,
+      initialIndex: widget.initialTabIndex, // Set initial tab index
+    );
   }
 
   @override
@@ -34,7 +40,12 @@ class _FollowTabsState extends State<FollowTabs>
           'sara',
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
-        leading: Icon(Icons.arrow_back_ios_new, color: Colors.black),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context); // Navigate back
+          },
+        ),
         bottom: TabBar(
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
@@ -82,6 +93,7 @@ class _FollowTabsState extends State<FollowTabs>
             ),
           ),
 
+          // Following List
           Center(
             child: ListView.builder(
               itemCount: 8, // Replace with dynamic count

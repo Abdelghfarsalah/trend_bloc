@@ -21,10 +21,11 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
+          color: Colors.white,
           themeMode: ThemeMode.light,
           title: 'Trend',
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.login,
+          initialRoute: AppRoutes.home,
           routes: routes, // Ensure routes are defined in utils/routes.dart
           onGenerateRoute: onGenerateRoute, // Handle dynamic routing
         );

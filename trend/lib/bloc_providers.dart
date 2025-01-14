@@ -6,13 +6,17 @@ import 'package:trend/features/authentication/bloc/authentication_event.dart';
 import 'package:trend/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:trend/features/explore/bloc/explore_bloc.dart';
 import 'package:trend/features/explore/data/explore_api.dart';
-import 'package:trend/features/home/bloc/home_bloc.dart';
-import 'package:trend/features/home/domain/repository/home_repository.dart';
-
-final dio = Dio();
+import 'package:trend/features/posts/bloc/post_bloc.dart';
+import 'package:trend/features/posts/bloc/post_event.dart';
+import 'package:trend/features/posts/domain/repositories/post_repository_impl.dart';
+import 'package:trend/features/posts/domain/use_cases/get_posts.dart';
 
 class AppBlocProviders {
   static MultiBlocProvider getBlocProviders({required Widget child}) {
+    final dio = Dio();
+    final postRepository =
+        PostRepositoryImpl(dio); // Replace with actual repository
+    final getPosts = GetPosts(postRepository); // Create GetPosts instance
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthenticationBloc>(
@@ -28,10 +32,10 @@ class AppBlocProviders {
             exploreApi: ExploreApi(dio: dio),
           ),
         ),
-        BlocProvider<HomeBloc>(
-          create: (context) => HomeBloc(
-            homeRepository: HomeRepository(dio: dio),
-          )..add(FetchPostsEvent()),
+        BlocProvider(
+          create: (_) =>
+              PostBloc(getPosts)..add(FetchPosts()), // Pass GetPosts instance
+          // Automatically fetch posts
         ),
       ],
       child: child,

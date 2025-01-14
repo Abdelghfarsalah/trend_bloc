@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:trend/features/home/presentation/widgets/post_details.dart';
+import 'package:trend/features/posts/data/models/post_model.dart';
+import 'package:trend/features/posts/presentation/widgets/post_details.dart';
 
 class HeaderPost extends StatelessWidget {
-  const HeaderPost({super.key});
+  final Post post;
+  const HeaderPost({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
+      padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
       child: Column(
         children: [
           Row(
@@ -16,16 +18,16 @@ class HeaderPost extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 16,
-                    backgroundImage: AssetImage('assets/images/image.png'),
+                    backgroundImage: NetworkImage(post.avatar!),
                   ),
                   SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'aziz',
+                        post.author!,
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -35,7 +37,6 @@ class HeaderPost extends StatelessWidget {
                   ),
                 ],
               ),
-              // Wrap '10m' and 'Icon' in a Row
               Row(
                 children: [
                   Text(
@@ -56,18 +57,26 @@ class HeaderPost extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.more_horiz,
-                      color: Colors.grey,
+                      size: 19,
+                      // color: Colors.grey,
                     ),
                   ),
                 ],
               ),
             ],
           ),
-          SizedBox(height: 5.h),
-          Text(
-            'Victory tastes sweeter with every twist and turn and driven by passion, fueled by adrenaline – Rally Champion 2024!',
-            style: TextStyle(fontWeight: FontWeight.w500),
-          ),
+          // SizedBox(height: 5.h),
+          if (post.description != null && post.description!.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 0.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  post.description!,
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            )
         ],
       ),
     );

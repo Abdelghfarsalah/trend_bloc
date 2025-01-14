@@ -7,4 +7,7 @@ class ApiEndpoints {
 
   // explore endpoints
   static const String allPosts = '$baseUrl/posts/all-posts/';
+
+  // profile
+  static const String profile = '$baseUrl/profile/';
 }
