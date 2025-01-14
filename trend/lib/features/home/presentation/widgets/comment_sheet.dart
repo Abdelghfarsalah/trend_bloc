@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:trend/utils/colors.dart';
 
 class CommentSheet extends StatefulWidget {
   const CommentSheet({super.key});
