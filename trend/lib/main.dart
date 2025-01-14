@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
+          color: Colors.white,
           themeMode: ThemeMode.light,
           title: 'Trend',
           debugShowCheckedModeBanner: false,

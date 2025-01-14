@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:trend/features/profile/presentation/follow_tap/follow_tap.dart';
 
 class MyProfile extends StatelessWidget {
   const MyProfile({super.key});
@@ -60,41 +61,57 @@ class MyProfile extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Column(
-                      children: [
-                        Text(
-                          '97.5K',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FollowTabs(initialTabIndex: 0),
                         ),
-                        Text(
-                          'Followers',
-                          style: TextStyle(
-                            fontSize: 11.sp,
-                            color: Colors.grey,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            '97.5K',
+                            style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                      ],
+                          Text(
+                            'Followers',
+                            style: TextStyle(
+                              fontSize: 11.sp,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        Text(
-                          '121',
-                          style: TextStyle(
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FollowTabs(initialTabIndex: 1),
                         ),
-                        Text(
-                          'Following',
-                          style: TextStyle(
-                            fontSize: 11.sp,
-                            color: Colors.grey,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            '121',
+                            style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                      ],
+                          Text(
+                            'Following',
+                            style: TextStyle(
+                              fontSize: 11.sp,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     Column(
                       children: [

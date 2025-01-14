@@ -13,8 +13,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false, // Removes the back button
-        backgroundColor: Colors.white,
-        elevation: 0,
+
+        elevation: 0, // Remove shadow from AppBar
         title: const Align(
           alignment: Alignment.centerLeft,
           child: Text(
@@ -47,7 +47,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

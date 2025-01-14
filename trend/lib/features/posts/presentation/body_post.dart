@@ -8,21 +8,26 @@ class BodyPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 300,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        image: post.image != null &&
-                post.image!.isNotEmpty // Check if not null and not empty
-            ? DecorationImage(
-                image: NetworkImage(post.image!), // Image from API
-                fit: BoxFit.cover,
-              )
-            : const DecorationImage(
-                image: AssetImage(
-                    'assets/images/placeholder.jpg'), // Fallback image
-                fit: BoxFit.cover,
-              ),
+    return GestureDetector(
+      onDoubleTap: () {
+        print("Good work.");
+      },
+      child: Container(
+        height: 300,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: post.image != null &&
+                  post.image!.isNotEmpty // Check if not null and not empty
+              ? DecorationImage(
+                  image: NetworkImage(post.image!), // Image from API
+                  fit: BoxFit.cover,
+                )
+              : const DecorationImage(
+                  image: AssetImage(
+                      'assets/images/placeholder.jpg'), // Fallback image
+                  fit: BoxFit.cover,
+                ),
+        ),
       ),
     );
   }
