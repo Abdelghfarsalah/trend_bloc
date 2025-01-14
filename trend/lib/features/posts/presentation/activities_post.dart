@@ -4,9 +4,22 @@ import 'package:flutter_svg/svg.dart';
 import 'package:trend/features/posts/data/models/post_model.dart';
 import 'package:trend/features/posts/presentation/widgets/comment_sheet.dart';
 
-class ActivitiesPost extends StatelessWidget {
-  Post post;
+class ActivitiesPost extends StatefulWidget {
+  final Post post;
   ActivitiesPost({super.key, required this.post});
+
+  @override
+  _ActivitiesPostState createState() => _ActivitiesPostState();
+}
+
+class _ActivitiesPostState extends State<ActivitiesPost> {
+  bool isLiked = false; // Initial state for the like button
+
+  void toggleLike() {
+    setState(() {
+      isLiked = !isLiked; // Toggle the like state
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,39 +28,49 @@ class ActivitiesPost extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Row(
-              children: [
-                SvgPicture.asset(
-                  'assets/icons/like.svg',
-                  color: Colors.grey,
-                  height: 12.h,
-                ),
-                Text(
-                  ' like',
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ],
+            // Like Button
+            GestureDetector(
+              onTap: toggleLike,
+              child: Row(
+                children: [
+                  SvgPicture.asset(
+                    isLiked
+                        ? 'assets/icons/like_fill.svg' // Filled like icon
+                        : 'assets/icons/like.svg', // Regular like icon
+                    height: 12.h,
+                    color: isLiked
+                        ? Colors.red
+                        : null, // Set color to red if liked
+                  ),
+                  SizedBox(width: 4.w),
+                  Text(
+                    'like',
+                    style: TextStyle(
+                      fontSize: 12.5.sp,
+                      // color: isLiked ? Colors.red : Colors.grey,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
+              ),
             ),
             // Comment Button
             Row(
               children: [
                 SvgPicture.asset(
                   'assets/icons/comment.svg',
-                  color: Colors.grey,
                   height: 12.h,
                 ),
+                SizedBox(width: 4.w),
                 GestureDetector(
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
-                      isScrollControlled:
-                          true, // Allows the bottom sheet to adjust with the keyboard
+                      isScrollControlled: true,
                       builder: (BuildContext context) {
                         return Padding(
                           padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context)
-                                .viewInsets
-                                .bottom, // Adjust for keyboard
+                            bottom: MediaQuery.of(context).viewInsets.bottom,
                           ),
                           child: const CommentSheet(),
                         );
@@ -55,10 +78,10 @@ class ActivitiesPost extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    ' comment',
+                    'comment',
                     style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14.sp,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
@@ -69,20 +92,23 @@ class ActivitiesPost extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   'assets/icons/share.svg',
-                  color: Colors.grey,
                   height: 12.h,
                 ),
+                SizedBox(width: 4.w),
                 Text(
-                  ' share',
-                  style: TextStyle(color: Colors.grey),
+                  'share',
+                  style: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ],
             ),
           ],
         ),
         SizedBox(
-          height: 5.h,
-        )
+          height: 7.h,
+        ),
       ],
     );
   }

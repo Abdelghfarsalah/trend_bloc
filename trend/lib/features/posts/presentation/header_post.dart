@@ -57,7 +57,8 @@ class HeaderPost extends StatelessWidget {
                     },
                     child: Icon(
                       Icons.more_horiz,
-                      color: Colors.grey,
+                      size: 19,
+                      // color: Colors.grey,
                     ),
                   ),
                 ],

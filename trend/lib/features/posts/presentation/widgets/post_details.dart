@@ -26,7 +26,7 @@ class PostDetails extends StatelessWidget {
                 child: Text(
                   'Post Details',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -34,7 +34,7 @@ class PostDetails extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: 20.w, right: 20.w, top: 10.h, bottom: 35.h),
+                  left: 20.w, right: 20.w, top: 5.h, bottom: 35.h),
               child: Column(
                 children: [
                   Container(
@@ -53,7 +53,7 @@ class PostDetails extends StatelessWidget {
                               child: Row(children: [
                                 SvgPicture.asset(
                                   'assets/icons/hide_post.svg',
-                                  height: 18.h,
+                                  height: 14.h,
                                 ),
                                 SizedBox(width: 10.w),
                                 Column(
@@ -62,7 +62,7 @@ class PostDetails extends StatelessWidget {
                                       'Hide Post',
                                       style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ],
@@ -77,7 +77,7 @@ class PostDetails extends StatelessWidget {
                               Icon(
                                 Icons.block_rounded,
                                 color: Colors.red,
-                                size: 18.h,
+                                size: 14.h,
                               ),
                               SizedBox(width: 10.w),
                               Column(
@@ -86,7 +86,7 @@ class PostDetails extends StatelessWidget {
                                     'Block User',
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                     ),
                                   ),
                                 ],
