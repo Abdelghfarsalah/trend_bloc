@@ -12,9 +12,10 @@ class BodyPost extends StatelessWidget {
       height: 300,
       width: double.infinity,
       decoration: BoxDecoration(
-        image: post.image.isNotEmpty
+        image: post.image != null &&
+                post.image!.isNotEmpty // Check if not null and not empty
             ? DecorationImage(
-                image: NetworkImage(post.image), // Image from API
+                image: NetworkImage(post.image!), // Image from API
                 fit: BoxFit.cover,
               )
             : const DecorationImage(

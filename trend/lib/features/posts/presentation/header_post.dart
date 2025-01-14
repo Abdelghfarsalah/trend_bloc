@@ -10,7 +10,7 @@ class HeaderPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
+      padding: EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
       child: Column(
         children: [
           Row(
@@ -20,14 +20,14 @@ class HeaderPost extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 16,
-                    backgroundImage: NetworkImage(post.avatar),
+                    backgroundImage: NetworkImage(post.avatar!),
                   ),
                   SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        post.author,
+                        post.author!,
                         style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
@@ -64,14 +64,18 @@ class HeaderPost extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 3.h),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              post.description,
-              style: TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
+          // SizedBox(height: 5.h),
+          if (post.description != null && post.description!.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(top: 0.0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  post.description!,
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+              ),
+            )
         ],
       ),
     );

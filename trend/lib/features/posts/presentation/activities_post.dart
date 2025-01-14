@@ -80,10 +80,9 @@ class ActivitiesPost extends StatelessWidget {
             ),
           ],
         ),
-        Divider(
-          color: Colors.grey,
-          thickness: 0.1,
-        ),
+        SizedBox(
+          height: 5.h,
+        )
       ],
     );
   }
